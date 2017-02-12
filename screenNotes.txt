@@ -1,0 +1,160 @@
+gan screen
+
+Screen Help
+Ctrl-A - ?
+
+New screen
+Ctrl-A - c
+
+Change Screen
+Ctrl-A P or N or number
+
+Split
+horizontal
+Ctrl-A - S
+vertical
+Ctrl-A - |
+After new run New Screen or Change Screen
+Close splited
+Ctrl-A - X
+Change split screen
+Ctrl-A - Tab
+Delete all but current one
+Ctrl-A Q
+Close all
+Ctrl-A \\
+
+attach screen
+screem -x number
+
+Scrool on Screen
+1-Press "Ctrl-A" on the keyboard and press "Esc."
+2-Press the "Up" and "Down" arrow keys
+or the "PgUp" and "PgDn" keys to scroll through previous output
+or H-J-K-L
+
+# screen top
+# screen -t monkey ssh monkey
+# screen -t mail 8 mutt
+# screen -t daemon 9 tail -f /var/log/daemon.log
+
+screen -t  topLeft 0 screenConnect topLeftConnect
+split -v          # Make second split
+focus             # Switch to second split
+screen -t  topRight 1 screenConnect topRightConnect # Open second screen and launch second script
+split             # Make third split
+focus             # Switch to third split
+screen -t bottomRight 3 screenConnect bottomRightConnect # Open third screen and launch third script
+focus             # Cycle back to first split
+split             # Split first split horizontally
+focus             # Switch to new split
+screen -t bottomLeft 2 screenConnect bottomLeftConnect # Open fourth screen and launch fourth script
+
+cat screenConnect
+screen -aAxR -S $1
+disconnects elsewhere and connects here: helps with resize
+screen -aAxRD -S $1
+
+bind ' ' windowlist -b
+This screenrc  command would bind the space key to the command that displays a list of windows
+(so that the command usually invoked by C-a " would also be available as C-a space which is
+much more convenient)
+
+change to window by number	C-a <number> (only for windows 0 to 9)
+change to window by number or name	C-a ' <number or title>
+change to next window in list	C-a n or C-a <space>
+change to previous window in list	C-a p or C-a <backspace>
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%w"
+
+split display horizontally	C-a S
+split display vertically	C-a | or C-a V (for the vanilla vertical screen patch)
+jump to next display region	C-a tab
+remove current region	C-a X
+remove all regions but the current one	C-a Q
+
+
+Attach multiple times to a single screen session
+screen -aAxR -S x
+disconnects elsewhere and connects here: helps with resize
+screen -aAxRD -S x
+
+bindkey "^[Od" prev  # change window with ctrl-left
+bindkey "^[Oc" next  # change window with ctrl-right
+
+screenrc change without restart
+Ctrl-a : source ~/.screenrc
+
+Screen:
+:silence 5
+:silence on
+for default
+
+:monitor on
+C-a M
+:activity message
+:activity "%c activity -> %n%f %t^G"
+
+C-a M - Start/stop monitoring window for activity.
+C-a _ - Start/stop monitoring window for inactivity.
+
+Check:
+C-a :split
+or
+C-a split -v
+
+Then change-focus to new window
+C-a tab
+
+Start new screen
+C-a C
+
+To kill splits
+C-a X
+
+remove dead screens
+screen -wipe
+
+"kill" will only kill one screen window. To "kill" the complete session, use quit.
+
+Example
+$ screen -X -S [session # you want to kill] quit
+
+Send commands to another screen
+screen -S 13725.topRight -X stuff 'ls'`echo -ne '\015'`
+screen -S 13725.topRight -X stuff 'echo ARDA'`echo -ne '\015'`
+
+screen -S 28665.pts-8.arda-desktop -X stuff 'vktrace -p VKTS_Example04'`echo -ne '\015'`
+screen -S 28665.pts-8.arda-desktop -X stuff `echo -ne '^C'`
+
+screen -S 28665.pts-8.arda-desktop -X stuff 'vkreplay -t vktrace_out.vktrace'`echo -ne '\015'`
+
+Enquiry a screen with name
+screen -ls bottomLeft
+
+There is a screen on:
+        23468.bottomLeft        (Attached)
+1 Socket in /var/run/screen/S-arda.
+
+Movement Keys
+h, j, k, l move the cursor line by line or column by column.
+0, ^ and $ move to the leftmost column or to the first or last non-whitespace character on the line.
+H, M and L move the cursor to the leftmost column of the top, center or bottom line of the window.
++ and - move the cursor to the leftmost column of the next or previous line.
+G moves to the specified absolute line (default: end of buffer). | moves to the specified absolute column.
+w, b, e move the cursor word by word. C-u and C-d scroll the display up/down by the specified amount of lines while preserving the cursor position. (Default: half screenfull).
+C-b and C-f move the cursor up/down a full screen.
+g moves to the beginning of the buffer.
+
+Copy
+Command: copy
+(C-a [, C-a C-[, C-a ESC)
+
+Paste
+(C-a ], C-a C-])
+
+Searching
+/ vi-like search forward.
+? vi-like search backward.

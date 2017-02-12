@@ -1,0 +1,11 @@
+#!/bin/bash  
+
+#TARGETSCREEN=topRight
+#TARGETSCREEN=bottomLeft
+
+echo TARGERSCREEN=$TARGETSCREEN
+echo $*
+#echo $@
+
+#screen -S $TARGETSCREEN -X stuff 'ls'`echo -ne '\015'`
+screen -S $TARGETSCREEN -X stuff "$*"`echo -ne '\015'`

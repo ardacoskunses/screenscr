@@ -1,0 +1,2 @@
+cat /tmp/$STY.log | tail -n 1
+

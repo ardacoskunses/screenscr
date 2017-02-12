@@ -1,0 +1,4 @@
+PROJECT=$PWD
+export PATH=$PROJECT:$PATH
+export SCRCONFIG=$PWD
+

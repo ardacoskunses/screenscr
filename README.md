@@ -49,21 +49,21 @@ screen terminals on one computer, screenSend command scripts on anohter.
 
 ## Send commands to screens:
 ```
-./topLeft echo "I am top Left Screen"
+screenTopLeft echo "I am top Left Screen"
 
-./topRight echo "I am top Right Screen"
+screenTopRight echo "I am top Right Screen"
 
-./bottomRight top
+screenBottomRight top
 
-./bottomLeft "ps -aux | grep screen"
+screenBottomLeft "ps -aux | grep screen"
 ```
 
 ## to stop a running app:
 ```
-./bottomRight ^C
+screenBottomRight ^C
 ```
 ## To send same command to all screens run:
 ```
-./broadcast clear
-./broadcast echo "test"
+screenbroadcast clear
+screenbroadcast echo "test"
 ```

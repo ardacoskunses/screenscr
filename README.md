@@ -6,17 +6,15 @@ source setup-env
 ```
 ## Start 4 screens tiled:
 ```
-
 mscreen
 ```
-
 ## To switch screens:
 Ctrl-A tab
 
 ## To go back previous screen:
 
 F8
-
+## Send commands to screens:
 ```
 ./topLeft echo "I am top Left Screen"
 
@@ -27,7 +25,6 @@ F8
 
 ## to stop runnung app:
 ```
-
 ./bottomRight ^C
 
 ./bottomLeft "ps -aux | grep screen"
@@ -35,14 +32,13 @@ F8
 
 ## To send same command to all screens run:
 ```
-
 ./broadcast echo "test"
 ```
 
 ## To Quit without terminating screens:
 Ctrl-A \ ==> y
 
-## not tiled screens:
+## not tiled (Full) screens:
 ```
 m2screen
 ```
@@ -59,6 +55,3 @@ m3screen
 or
 screen4K
 ```
-
-
-

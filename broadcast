@@ -1,4 +1,4 @@
-bottomRight $*
-bottomLeft $* 
-topRight $*
-topLeft $*
+screenBottomRight $*
+screenBottomLeft $*
+screenTopRight $*
+screenTopLeft $*

@@ -1,4 +1,0 @@
-#export TARGETSCREEN=bottomLeft
-
-TARGETSCREEN=bottomLeft ./screenSend $*
-

@@ -18,7 +18,7 @@ F8
 ```
 ./topLeft echo "I am top Left Screen"
 
-./topRight echo "I am top Left Screen"
+./topRight echo "I am top Right Screen"
 
 ./bottomRight top
 
@@ -31,6 +31,7 @@ F8
 ```
 ## To send same command to all screens run:
 ```
+./broadcast clear
 ./broadcast echo "test"
 ```
 

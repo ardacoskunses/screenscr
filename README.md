@@ -21,15 +21,14 @@ F8
 ./topRight echo "I am top Left Screen"
 
 ./bottomRight top
+
+./bottomLeft "ps -aux | grep screen"
 ```
 
 ## to stop runnung app:
 ```
 ./bottomRight ^C
-
-./bottomLeft "ps -aux | grep screen"
 ```
-
 ## To send same command to all screens run:
 ```
 ./broadcast echo "test"

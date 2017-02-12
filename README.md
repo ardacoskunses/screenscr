@@ -25,7 +25,7 @@ F8
 ./bottomLeft "ps -aux | grep screen"
 ```
 
-## to stop runnung app:
+## to stop a running app:
 ```
 ./bottomRight ^C
 ```
